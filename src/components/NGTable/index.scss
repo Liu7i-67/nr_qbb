@@ -1,0 +1,122 @@
+$headerHeight: 41px;
+
+.ng-table-box {
+  position: relative;
+
+  .ng-setting {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgb(228, 237, 252);
+    z-index: 1000;
+    height: $headerHeight + 2px;
+    line-height: $headerHeight + 2px;
+    padding: 0 8px;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    .iconfont {
+      padding-left: 8px;
+      color: rgb(97, 144, 232);
+      border-left: 1px solid rgb(201, 203, 208);
+      cursor: pointer;
+    }
+  }
+}
+
+.ng-table {
+  position: relative;
+  border-top: 1px solid lightgray;
+  overflow: auto;
+
+  .ng-thead {
+    width: fit-content;
+  }
+
+  .ng-tbody {
+    width: 100%;
+  }
+
+  .ng-tr {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    width: fit-content;
+  }
+
+  .ng-th {
+    border-right: 1px solid lightgray;
+    height: $headerHeight;
+    padding: 0 8px;
+    line-height: $headerHeight;
+    position: relative;
+    font-weight: bold;
+    background-color: rgb(228, 237, 252);
+  }
+
+  .ng-td {
+    padding: 4px 8px;
+    border-right: 1px solid lightgray;
+  }
+
+  .ng-thead-box {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .ng-tr-box {
+    &:nth-child(2n) {
+      .ng-tr {
+        background-color: rgb(255, 255, 255);
+      }
+    }
+    &:nth-child(2n + 1) {
+      .ng-tr {
+        background-color: rgb(245, 248, 254);
+      }
+    }
+    &:hover {
+      .ng-tr {
+        background-color: rgb(219, 241, 252);
+      }
+    }
+  }
+
+  .ng-thead-box,
+  .ng-tr-box {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+
+    &.auto {
+      width: auto;
+    }
+
+    .ng-thead,
+    .ng-tr {
+      &.left {
+        position: sticky;
+        left: 0;
+        z-index: 999;
+        box-shadow: 0 0 4px lightgray;
+      }
+      &.right {
+        position: sticky;
+        right: 0;
+        z-index: 999;
+        box-shadow: 0 0 4px lightgray;
+      }
+      &.center {
+        flex: 1;
+        .ng-td,
+        .ng-th {
+          &:last-child {
+            flex: 1;
+          }
+        }
+        .ng-tr {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

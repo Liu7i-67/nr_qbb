@@ -1,0 +1,62 @@
+/*
+ * @Author: liu7i 
+ * @Date: 2022-07-07 15:21:06 
+ * @Last Modified by: liu7i
+ * @Last Modified time: 2022-07-07 16:24:25
+ */
+
+.ng_ellipsis {
+  position: relative;
+  .ng_ellipsis_shadow {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    max-height: 200%;
+    overflow: auto;
+    opacity: 0;
+    word-break: break-all;
+    pointer-events: none;
+  }
+}
+
+.wes_1 {
+  /* 多出部分用省略号表示 , 用于一行 */
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.wes_2 {
+  /* 适用于webkit内核和移动端 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.wes_3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.wes_4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  word-break: break-all;
+}
+.wes_5 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+  word-break: break-all;
+}

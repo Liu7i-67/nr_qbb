@@ -1,0 +1,91 @@
+/*
+ * @Author: liu7i 
+ * @Date: 2022-04-25 13:43:39 
+ * @Last Modified by: liu7i
+ * @Last Modified time: 2022-04-25 15:31:09
+ */
+.ng-table-setting-modal {
+  $titleHeight: 50px;
+  .ant-modal-close-x {
+    height: $titleHeight;
+    line-height: $titleHeight;
+    width: 42px;
+  }
+
+  .ant-modal-content {
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .ant-modal-header {
+    padding: 0;
+    border-radius: 4px 4px 0 0;
+  }
+
+  .ng-setting-title {
+    display: flex;
+    border-top: 2px solid rgb(89, 143, 232);
+    border-bottom: 1px solid #e8e8e8;
+    height: $titleHeight;
+    align-items: center;
+    padding-left: 24px;
+    background-color: rgb(222, 233, 250);
+
+    .search {
+      margin-left: 16px;
+      height: 32px;
+      width: 216px;
+      .ant-input {
+        border-radius: 4px;
+        text-indent: 20px;
+      }
+    }
+  }
+
+  .ant-input-group-addon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    z-index: 20;
+    border: none;
+  }
+
+  .ant-modal-body {
+    padding: 0 0 0 20px;
+    display: flex;
+    .left {
+      width: 580px;
+      height: 400px;
+      max-height: 600px;
+      .top {
+        margin-top: 12px;
+      }
+      .ng-column-item {
+        width: 145px;
+        margin: 16px 0 0;
+        overflow: hidden;
+        span {
+          &:last-child {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-wrap: normal;
+            white-space: nowrap;
+            word-break: break-all;
+          }
+        }
+      }
+    }
+    .right {
+      border-left: 1px solid rgb(240, 240, 240);
+      flex: 1;
+      height: 400px;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+  }
+}

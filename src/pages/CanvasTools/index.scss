@@ -1,0 +1,108 @@
+.page-canvasTools {
+  position: relative;
+  height: 100vh;
+  background-color: rgb(215, 250, 218);
+  overflow-y: auto;
+}
+
+.canvasTools-Tool {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 12px;
+  height: 60px;
+  align-items: center;
+  background-color: rgb(215, 250, 218);
+  border-bottom: 1px solid rgb(221, 205, 163);
+  z-index: 20;
+}
+
+$draggable: 4px;
+
+.canvasTools-box {
+  padding: $draggable;
+  position: relative;
+  margin: 8px;
+  width: min-content;
+  font-size: 0;
+}
+
+.canvasTools-draggable {
+  &-n,
+  &-s {
+    position: absolute;
+    width: calc(100% - 2 * $draggable);
+    height: $draggable;
+    left: $draggable;
+  }
+
+  &-n {
+    top: 0;
+    cursor: n-resize;
+  }
+
+  &-s {
+    bottom: 0;
+    cursor: s-resize;
+  }
+
+  &-w,
+  &-e {
+    position: absolute;
+    width: $draggable;
+    height: calc(100% - 2 * $draggable);
+    top: $draggable;
+  }
+
+  &-w {
+    left: 0;
+    cursor: w-resize;
+  }
+
+  &-e {
+    right: 0;
+    cursor: e-resize;
+  }
+
+  &-ne,
+  &-nw,
+  &-sw,
+  &-se {
+    position: absolute;
+    width: $draggable;
+    height: $draggable;
+  }
+
+  &-ne {
+    top: 0;
+    right: 0;
+    cursor: ne-resize;
+  }
+
+  &-nw {
+    top: 0;
+    left: 0;
+    cursor: nw-resize;
+  }
+
+  &-se {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+  }
+
+  &-sw {
+    bottom: 0;
+    left: 0;
+    cursor: sw-resize;
+  }
+}
+
+.canvasTools {
+  box-shadow: 0 0 10px lightgray;
+  background-color: rgb(215, 250, 218);
+  &:hover {
+    cursor: pointer;
+  }
+}
