@@ -2,7 +2,7 @@
  * @Author: liu7i
  * @Date: 2022-04-19 10:38:52
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-07-13 11:37:39
+ * @Last Modified time: 2022-07-29 09:36:45
  */
 import React from "react";
 import Layout from "@/layouts/Layout";
@@ -14,6 +14,7 @@ import Test from "pages/Test";
 import Test2 from "pages/Test2";
 import Page404 from "pages/Page404";
 import CanvasTools from "pages/CanvasTools";
+import ToDoList from "pages/ToDoList";
 import type { RouteObject } from "react-router-dom";
 
 export const router: RouteObject[] = [
@@ -28,6 +29,7 @@ export const router: RouteObject[] = [
       { path: "/test", element: <Test /> },
       { path: "/test2", element: <Test2 /> },
       { path: "/canvas", element: <CanvasTools /> },
+      { path: "/todo", element: <ToDoList /> },
       { path: "*", element: <Page404 /> },
     ],
   },

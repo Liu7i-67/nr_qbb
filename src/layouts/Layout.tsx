@@ -2,7 +2,7 @@
  * @Author: liu7i
  * @Date: 2022-04-19 10:54:16
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-07-13 11:39:23
+ * @Last Modified time: 2022-07-29 09:37:02
  */
 
 import { useState, useMemo, useCallback } from "react";
@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { classNames } from "utils/Tools";
 
-const Layouts = () => {
+function Layouts() {
   const [state, setState] = useState({
     /** @param 是否激活 */
     active: false,
@@ -62,10 +62,13 @@ const Layouts = () => {
         <Link to="/canvas" className={classLink}>
           Canvas工具
         </Link>
+        <Link to="/todo" className={classLink}>
+          待办事项
+        </Link>
       </div>
       <Outlet />
     </div>
   );
-};
+}
 
 export default Layouts;
