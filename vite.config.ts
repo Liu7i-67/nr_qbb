@@ -24,6 +24,7 @@ export default defineConfig({
   },
   server: {
     port: 6768,
+    host: "192.168.1.138",
   },
   resolve: {
     alias: {

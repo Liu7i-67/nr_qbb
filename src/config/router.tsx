@@ -9,6 +9,7 @@ import Layout from "@/layouts/Layout";
 import Home from "pages/Home";
 import Formik from "pages/Formik";
 import ReactHookForm from "pages/ReactHookForm";
+import IndexedDB from "pages/IndexedDB";
 import Table from "pages/Table";
 import Test from "pages/Test";
 import Test2 from "pages/Test2";
@@ -30,6 +31,7 @@ export const router: RouteObject[] = [
       { path: "/test2", element: <Test2 /> },
       { path: "/canvas", element: <CanvasTools /> },
       { path: "/todo", element: <ToDoList /> },
+      { path: "/index", element: <IndexedDB /> },
       { path: "*", element: <Page404 /> },
     ],
   },

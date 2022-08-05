@@ -2,8 +2,9 @@
  * @Author: liu7i
  * @Date: 2022-04-20 10:58:10
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-07-21 17:00:16
+ * @Last Modified time: 2022-08-05 17:49:54
  */
+import type { IJsonString } from "./interface";
 
 /** @function 组合className */
 export const classNames = (...arg: (string | { [key: string]: boolean })[]) => {
@@ -56,4 +57,17 @@ export function to<T, U = Error>(
 
       return [err, undefined];
     });
+}
+
+/**
+ * json数据转换
+ * @param data json字符串
+ * @returns [any]
+ */
+export function getJSONToParse<T>(data: IJsonString<T>) {
+  let resData = undefined;
+  try {
+    resData = JSON.parse(data);
+  } catch (error) {}
+  return resData;
 }

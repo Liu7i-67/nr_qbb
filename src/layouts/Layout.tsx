@@ -2,7 +2,7 @@
  * @Author: liu7i
  * @Date: 2022-04-19 10:54:16
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-07-29 09:37:02
+ * @Last Modified time: 2022-08-05 16:59:19
  */
 
 import { useState, useMemo, useCallback } from "react";
@@ -15,6 +15,7 @@ function Layouts() {
     /** @param 是否激活 */
     active: false,
   });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const classNav = useMemo(() => {
     const _className = classNames("Layouts_nav", { active: state.active });
@@ -42,7 +43,23 @@ function Layouts() {
 
   return (
     <div className="Layouts">
-      <div className={classNav} onDoubleClick={open} onClick={close} draggable>
+      <div
+        className={classNav}
+        onDoubleClick={open}
+        onClick={close}
+        draggable
+        onDragEnd={(e) => {
+          setPosition({
+            x: e.clientX < 0 ? 0 : e.clientX,
+            y: e.clientY < 0 ? 0 : e.clientY,
+          });
+        }}
+        style={{
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+          ...(position.y === 0 && position.x === 0 ? {} : { opacity: 1 }),
+        }}
+      >
         <span>MENU</span>
         <Link to="/" className={classLink}>
           HOME
@@ -64,6 +81,9 @@ function Layouts() {
         </Link>
         <Link to="/todo" className={classLink}>
           待办事项
+        </Link>
+        <Link to="/index" className={classLink}>
+          IndexedDB
         </Link>
       </div>
       <Outlet />
