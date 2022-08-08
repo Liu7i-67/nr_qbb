@@ -2,14 +2,15 @@
  * @Author: liu7i
  * @Date: 2022-08-05 16:49:36
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-08-05 17:26:09
+ * @Last Modified time: 2022-08-08 11:20:53
  */
 
-import React from "react";
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { Card, Input, Button, InputNumber, Tooltip } from "antd";
+import React, { useEffect } from "react";
+import { Card, List } from "antd";
 import { observer } from "@quarkunlimit/qu-mobx";
 import Actions from "./modules/Actions";
+import ToDoItem from "./modules/ToDoItem";
+import Search from "./modules/Search";
 import type { IHomeProps } from "./interface";
 import { Provider, useStore } from "./store/RootStore";
 import "./index.scss";
@@ -17,20 +18,28 @@ import "./index.scss";
 const Home = observer(function Home_(props: IHomeProps) {
   const root = useStore();
 
+  useEffect(() => {
+    root.logic.initTodo();
+  }, []);
+
   return (
     <div className="pageHome">
       <Card
         tabList={[
           { key: "0", tab: "待办事项" },
           { key: "1", tab: "已完成" },
+          { key: "2", tab: "已作废" },
         ]}
         onTabChange={(item) => {
-          console.log(item);
+          root.logic.changeCurrentStatus(+item ?? 0);
         }}
-        extra={<div>lal</div>}
-        actions={[<Actions />]}
+        actions={[<Actions />, <Search />]}
       >
-        暂时待办事项
+        <List
+          dataSource={root.computed.todoList}
+          locale={{ emptyText: "暂无待办事项" }}
+          renderItem={(item) => <ToDoItem item={item} />}
+        />
       </Card>
     </div>
   );

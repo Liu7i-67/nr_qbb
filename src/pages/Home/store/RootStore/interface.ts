@@ -2,14 +2,14 @@
  * @Author: liu7i
  * @Date: 2022-08-05 17:30:40
  * @Last Modified by: liu7i
- * @Last Modified time: 2022-08-05 17:53:04
+ * @Last Modified time: 2022-08-08 13:38:23
  */
 
 import { LoadingStore } from "@quarkunlimit/qu-mobx";
 import { RootStore } from "./";
 import { Logic } from "./Logic";
 import { Computed } from "./Computed";
-import { ITodo } from "../../interface";
+import { ITodo, ISearchValue } from "../../interface";
 
 export type TLoadingStore = LoadingStore<"loading">;
 
@@ -17,6 +17,10 @@ export type TLoadingStore = LoadingStore<"loading">;
 export interface ILogic {
   loadingStore: TLoadingStore;
   rootStore: RootStore;
+  /** @param 当前查看的状态 */
+  status: number;
+  /** @param 改变当前查看的状态 */
+  changeCurrentStatus: (status: number) => void;
   todoList: ITodo[];
   /** @parma 编辑中的todo */
   currentTodo: Partial<ITodo>;
@@ -36,11 +40,22 @@ export interface ILogic {
   saveData: () => void;
   /** @function 修改待办状态 已完成->待办 or 待办->已完成 */
   changeStatus: (item: ITodo) => void;
+  /** @function 取消编辑 */
+  cannelEdit: () => void;
+  /** @param 搜索内容 */
+  searchValue: ISearchValue;
+  /** @function 修改搜索内容 */
+  changeSearchValue: (key: keyof ISearchValue, value: string) => void;
+  /** @function 搜索  **/
+  search: () => void;
+  /** @function 重置搜索 */
+  resetSearch: () => void;
 }
 
 /** 计算属性接口 */
 export interface IComputed {
   rootStore: RootStore;
+  todoList: ITodo[];
 }
 
 /** 根Store接口 */
