@@ -10,11 +10,13 @@ import Home from "pages/Home";
 import Formik from "pages/Formik";
 import ReactHookForm from "pages/ReactHookForm";
 import IndexedDB from "pages/IndexedDB";
+import Router from "pages/Router";
 import Table from "pages/Table";
 import Test from "pages/Test";
 import Test2 from "pages/Test2";
 import Page404 from "pages/Page404";
 import CanvasTools from "pages/CanvasTools";
+import AdvancedSearch from "pages/AdvancedSearch";
 import ToDoList from "pages/ToDoList";
 import type { RouteObject } from "react-router-dom";
 
@@ -32,6 +34,8 @@ export const router: RouteObject[] = [
       { path: "/canvas", element: <CanvasTools /> },
       { path: "/todo", element: <ToDoList /> },
       { path: "/index", element: <IndexedDB /> },
+      { path: "/router", element: <Router /> },
+      { path: "/advanced-search", element: <AdvancedSearch /> },
       { path: "*", element: <Page404 /> },
     ],
   },
