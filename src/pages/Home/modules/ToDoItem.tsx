@@ -81,10 +81,10 @@ const ToDoItem = observer(function ToDoItem_(props: IProps) {
         );
       }
     }
-  }, [item.status]);
+  }, [item]);
 
   return (
-    <div className="flex_a jsb">
+    <div className="flex_a jsb toDoItem">
       <span>
         <span className="fwb">{item.content}</span>
         <Tag className="ml-12" color="#2db7f5">

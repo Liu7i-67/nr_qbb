@@ -9,4 +9,11 @@
   height: 100vh;
   padding: 24px;
   background: linear-gradient(lightcyan 10%, white 30%, lightcyan 90%);
+
+  .toDoItem {
+    &:hover {
+      background-color: lightcyan;
+      cursor: pointer;
+    }
+  }
 }
