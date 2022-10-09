@@ -28,6 +28,10 @@ export interface ILogic {
   revoke: (index?: number) => void;
   /** @function 导出画布 */
   exportCtx: () => void;
+  /** @function 修改笔触颜色 */
+  changeColor: (color?: string) => void;
+  /** @function 修改笔触粗细 */
+  changeWidth: (w?: number) => void;
 }
 
 /** 计算属性接口 */

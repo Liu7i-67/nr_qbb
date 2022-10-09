@@ -6,7 +6,7 @@
  */
 
 import React from "react";
-import { InputNumber, Space, Button, Radio } from "antd";
+import { InputNumber, Space, Button, Radio, Input } from "antd";
 import { observer } from "@quarkunlimit/qu-mobx";
 import { useStore, EPaintMode } from "../store/RootStore";
 
@@ -72,6 +72,29 @@ const ToolBar = observer(() => {
           <Radio.Button value={EPaintMode.INIT}>普通画笔</Radio.Button>
           <Radio.Button value={EPaintMode.ERASER}>橡皮擦</Radio.Button>
         </Radio.Group>
+        <label>
+          <span>画笔颜色：</span>
+          <Input
+            type="color"
+            style={{ width: "50px" }}
+            onChange={(e) => {
+              toolStore.logic.changeColor(e.target.value);
+            }}
+          />
+        </label>
+        <label>
+          <span>画笔粗细：</span>
+          <InputNumber
+            min={1}
+            max={50}
+            style={{ width: "80px" }}
+            defaultValue={1}
+            precision={0}
+            onBlur={(e) => {
+              toolStore.logic.changeWidth(+(e.target.value || 0));
+            }}
+          />
+        </label>
       </Space>
     </div>
   );

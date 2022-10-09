@@ -110,4 +110,18 @@ export class Logic implements ILogic {
     link.dispatchEvent(evt);
     document.body.removeChild(link);
   }
+
+  changeColor(color?: string) {
+    const { el, paintStore } = this.rootStore;
+    const _color = color || "#000000";
+    paintStore.logic.ctx = el.current?.getContext("2d") || {};
+    paintStore.logic.ctx.strokeStyle = _color;
+  }
+
+  changeWidth(w?: number | undefined) {
+    const { el, paintStore } = this.rootStore;
+    const width = w || 1;
+    paintStore.logic.ctx = el.current?.getContext("2d") || {};
+    paintStore.logic.ctx.lineWidth = width;
+  }
 }

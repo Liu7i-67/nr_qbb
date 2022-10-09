@@ -82,7 +82,13 @@ export class Logic implements ILogic {
             x: e.nativeEvent.offsetX,
             y: e.nativeEvent.offsetY,
           };
-          this.ctx.clearRect?.(target.x - 3, target.y - 3, 6, 6);
+          const width = this.ctx.lineWidth || 6;
+          this.ctx.clearRect?.(
+            target.x - width,
+            target.y - width,
+            2 * width,
+            2 * width
+          );
           this.pointList = [target];
         }
         break;
