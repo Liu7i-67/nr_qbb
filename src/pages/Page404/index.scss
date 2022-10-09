@@ -1,0 +1,34 @@
+/*
+ * @Author: liu7i 
+ * @Date: 2022-09-28 10:38:13 
+ * @Last Modified by: liu7i
+ * @Last Modified time: 2022-09-28 10:42:30
+ */
+
+.box {
+  height: 500px;
+  border: 1px solid black;
+  display: flex;
+  position: relative;
+  .item1 {
+    height: 20px;
+    border: 1px solid #fff;
+    flex: 1;
+    background: green;
+  }
+  .item2 {
+    height: 50px;
+    border: 1px solid #fff;
+    flex: 1;
+    background: gold;
+  }
+  .item3 {
+    top: 20px;
+    left: calc(-2 / 3 * 100%);
+    position: relative;
+    height: 30px;
+    border: 1px solid #fff;
+    flex: 1;
+    background: blue;
+  }
+}
